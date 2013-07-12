@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>gee - A minimalistic (un)semantic grid system framework</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,400italic|Arvo:700,400,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="assets/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/prism.css">
+        <script src="assets/prism.js"></script>
+    </head>
+    <body>
+        <h1><a href="./">gee</a></h1>
+        <h2>A minimalistic (un)semantic grid system framework.</h2>
+
+        <p class="wrap wrap-center">
+            <a class="btn" href="https://github.com/jsor/gee/blob/master/README.md">Docs</a>
+            <a class="btn" href="demo/demo.html">Demo</a>
+            <a class="btn btn-primary" href="https://github.com/jsor/gee/archive/master.zip">Download</a>
+        </p>
+
+        <div class="wrap">
+            <p>
+                gee is a percentage-based grid system defaulting to 12 columns. It can be either used in a semantic way by using LESS mixins or in a traditional class-based (unsemantic) way.
+            </p>
+            <p>
+                The basic components are "rows" and "columns" where a row contains one or more columns. The only requirement is that all columns are children of a row.
+            </p>
+        </div>
+
+        <div class="wrap wrap-center">
+            <pre><code class="language-css">@import 'gee.less';
+
+/* Semantic grid */
+.container {
+    .gee-row();
+}
+.main {
+    .gee-col(9);
+}
+.sidebar {
+    .gee-col(3);
+}
+
+/* Generate class-based (unsemantic) grid */
+.gee-generate(12, 0, gee-);</code></pre>
+        </div>
+
+        <div class="wrap wrap-center">
+            <p><small>Copyright (c) 2013 Jan Sorgalla. Released under the MIT license.</small></p>
+        </div>
+
+        <a href="https://github.com/jsor/gee"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+/**
+ * gee - A minimalistic (un)semantic grid system framework
+ * Copyright (c) 2013 Jan Sorgalla
+ *
+ * License: MIT
+ * Version: 0.1.0
+ * URL:     http://sorgalla.com/gee
+ * Credits: Based on YUI's CSS Grids (http://yuilibrary.com/yui/docs/cssgrids/)
+ */
+
+@gee-columns: 12;
+@gee-gutter: 0;
+
+.gee-row() {
+    letter-spacing: -0.31em; // Webkit: collapse white-space between units
+    *letter-spacing: normal; // reset IE < 8
+    *word-spacing: -0.43em; // IE < 8: collapse white-space between units
+    text-rendering: optimizespeed; // Webkit: fixes text-rendering: optimizeLegibility
+
+    // Opera as of 12 on Windows needs word-spacing.
+    // The ".opera-only" selector is used to prevent actual prefocus styling
+    // and is not required in markup.
+    & .opera-only :-o-prefocus,
+    & {
+        word-spacing: -0.43em;
+    }
+}
+
+.gee-col-base() {
+    display: inline-block;
+    *display: inline; // IE < 8: fake inline-block
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+.gee-col-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    width: ((100% - ((@grid-columns - 1) * @grid-gutter)) / @grid-columns) * @columns + ((@columns - 1) * @grid-gutter);
+}
+
+.gee-col-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter = 0) {
+    width: percentage(@columns / @grid-columns);
+}
+
+.gee-col-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    margin-left: @grid-gutter;
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.gee-col-margin(@grid-gutter: @gee-gutter) when (@grid-gutter = 0) {
+}
+
+.gee-col(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@columns > 0) {
+    .gee-col-base();
+    .gee-col-width(@columns, @grid-columns);
+    .gee-col-margin(@grid-gutter);
+}
+
+.gee-col(@columns: 0, @grid-columns: 0, @grid-gutter: @gee-gutter) {
+    .gee-col-base();
+    .gee-col-margin(@grid-gutter);
+}
+
+.gee-generate(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @row-class: row, @col-class: col) {
+    .col-x(@index) when (@index > 0) {
+        .@{class-prefix}@{col-class}-@{index} {
+            .gee-col-width(@index, @columns, @gutter);
+        }
+        .col-x(@index - 1);
+    }
+
+    .col-x(0) {
+    }
+
+    .@{class-prefix}@{row-class} {
+        .gee-row();
+    }
+
+    (~'[class*="@{class-prefix}@{col-class}"]') {
+        .gee-col-base();
+        .gee-col-margin(@gutter);
+    }
+
+    .col-x(@columns);
+}

@@ -1,0 +1,33 @@
+@import "../gee";
+
+/**
+ * Grid system with 12 columns and without gutter.
+ */
+.gee-generate(12, 0, gee-);
+
+
+/**
+ * Grid system with 12 columns and a 2% gutter.
+ */
+.gee-generate(12, 2%, gee-gutter-);
+
+
+/**
+ * Responsive grid extension (use .gee-responsive-row instead of .gee-row).
+ * Columns collapse to full width on screen widths lower than 767px.
+ */
+.gee-responsive-row {
+    .gee-row();
+
+    img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .gee-responsive-row {
+        > [class*="gee-col"] {
+            width: 100%;
+        }
+    }
+}
