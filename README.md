@@ -3,12 +3,6 @@ gee
 
 A minimalistic (un)semantic grid system framework built on top of [LESS](http://lesscss.org).
 
-1. [Documentation](#documentation)
-2. [Download](#download)
-3. [Examples](#examples)
-4. [Credits](#credits)
-5. [License](#license)
-
 Documentation
 -------------
 
