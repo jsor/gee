@@ -9,7 +9,7 @@
 @gee-columns: 12;
 @gee-gutter: 0;
 
-.gee-row() {
+.gee-row-base() {
     letter-spacing: -0.31em; // Webkit: collapse white-space between units
     *letter-spacing: normal; // reset IE < 8
     *word-spacing: -0.43em; // IE < 8: collapse white-space between units
@@ -24,6 +24,30 @@
     }
 }
 
+.gee-row-width(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    width: 100% + @grid-gutter;
+}
+
+.gee-row-width(@grid-gutter: 0) when (@grid-gutter = 0) {
+}
+
+.gee-row-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    margin-left: @grid-gutter * -1;
+}
+
+.gee-row-margin(@grid-gutter: 0) when (@grid-gutter = 0) {
+}
+
+.gee-row(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    .gee-row-base();
+    .gee-row-width(@grid-gutter);
+    .gee-row-margin(@grid-gutter);
+}
+
+.gee-row(@grid-gutter: 0) when (@grid-gutter = 0) {
+    .gee-row-base();
+}
+
 .gee-col-base() {
     display: inline-block;
     *display: inline; // IE < 8: fake inline-block
@@ -35,21 +59,18 @@
 }
 
 .gee-col-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    width: ((100% - ((@grid-columns - 1) * @grid-gutter)) / @grid-columns) * @columns + ((@columns - 1) * @grid-gutter);
+    width: percentage(@columns / @grid-columns) - @grid-gutter;
 }
 
-.gee-col-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter = 0) {
+.gee-col-width(@columns, @grid-columns: @gee-columns, @grid-gutter: 0) when (@grid-gutter = 0) {
     width: percentage(@columns / @grid-columns);
 }
 
 .gee-col-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
     margin-left: @grid-gutter;
-    &:first-child {
-        margin-left: 0;
-    }
 }
 
-.gee-col-margin(@grid-gutter: @gee-gutter) when (@grid-gutter = 0) {
+.gee-col-margin(@grid-gutter: 0) when (@grid-gutter = 0) {
 }
 
 .gee-col(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@columns > 0) {
@@ -58,14 +79,14 @@
     .gee-col-margin(@grid-gutter);
 }
 
-.gee-col(@columns: 0, @grid-columns: 0, @grid-gutter: @gee-gutter) {
+.gee-col(@columns: 0, @grid-columns: 0, @grid-gutter: @gee-gutter) when (@grid-gutter = 0) {
     .gee-col-base();
     .gee-col-margin(@grid-gutter);
 }
 
 .gee-generate-base(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @row-class: row, @col-class: col) {
     .@{class-prefix}@{row-class} {
-        .gee-row();
+        .gee-row(@gutter);
     }
 
     (~'[class*="@{class-prefix}@{col-class}"]') {
@@ -86,7 +107,7 @@
     }
 
     .col-x(@columns);
-    }
+}
 
 .gee-generate(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @row-class: row, @col-class: col) {
     .gee-generate-base(@columns, @gutter, @class-prefix, @row-class, @col-class);
