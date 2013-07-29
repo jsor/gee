@@ -1,28 +1,28 @@
 Pixel-Based Grids
 =================
 
-Sometimes you may have the requirement to use pixel-based column widths.
-Custom column sizes can be applied by combining your custom widths with a
-generic column.
+Sometimes you may have the requirement to use pixel-based unit widths.
+Custom unit sizes can be applied by combining your custom widths with a
+generic unit.
 
 Semantic way
 ------------
 
-Just use the `.gee-col-base()` mixin.
+Just use the `.gee-unit-base()` mixin.
 
 ```css
 .container {
-    .gee-row();
+    .gee-grid();
     width: 960px;
 }
 
 .main {
-    .gee-col-base();
+    .gee-unit-base();
     width: 760px;
 }
 
 .sidebar {
-    .gee-col-base();
+    .gee-unit-base();
     width: 200px;
 }
 ```
@@ -46,11 +46,11 @@ Define the pixel widths in your stylesheet.
 }
 ```
 
-Use the generic `.gee-col` class in your markup.
+Use the generic `.gee-unit` class in your markup.
 
 ```html
-<div class="gee-row container">
-    <article class="gee-col main">...</article>
-    <section class="gee-col sidebar">...</section>
+<div class="gee-grid container">
+    <article class="gee-unit main">...</article>
+    <section class="gee-unit sidebar">...</section>
 </div>
 ```

@@ -24,7 +24,7 @@
                 gee is a percentage-based grid system defaulting to 12 columns. It can be either used in a semantic way by using LESS mixins or in a traditional class-based (unsemantic) way.
             </p>
             <p>
-                The basic components are "rows" and "columns" where a row contains one or more columns. The only requirement is that all columns are children of a row.
+                The basic components are "grids" and "units" where a grid contains one or more unit. The only requirement is that all units are children of a grid.
             </p>
         </div>
 
@@ -33,13 +33,13 @@
 
 /* Semantic grid */
 .container {
-    .gee-row();
+    .gee-grid();
 }
 .main {
-    .gee-col(9);
+    .gee-unit(9);
 }
 .sidebar {
-    .gee-col(3);
+    .gee-unit(3);
 }
 
 /* Generate class-based (unsemantic) grid */

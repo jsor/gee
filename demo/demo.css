@@ -1,17 +1,17 @@
 /**
  * Grid system with 12 columns and without gutter.
  */
-.gee-row {
+.gee-grid {
   letter-spacing: -0.31em;
   *letter-spacing: normal;
   *word-spacing: -0.43em;
   text-rendering: optimizespeed;
 }
-.gee-row .opera-only :-o-prefocus,
-.gee-row {
+.gee-grid .opera-only :-o-prefocus,
+.gee-grid {
   word-spacing: -0.43em;
 }
-[class*="gee-col"] {
+[class*="gee-unit"] {
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -20,46 +20,46 @@
   vertical-align: top;
   text-rendering: auto;
 }
-.gee-col-12 {
+.gee-unit-12 {
   width: 100%;
 }
-.gee-col-11 {
+.gee-unit-11 {
   width: 91.66666666666666%;
 }
-.gee-col-10 {
+.gee-unit-10 {
   width: 83.33333333333334%;
 }
-.gee-col-9 {
+.gee-unit-9 {
   width: 75%;
 }
-.gee-col-8 {
+.gee-unit-8 {
   width: 66.66666666666666%;
 }
-.gee-col-7 {
+.gee-unit-7 {
   width: 58.333333333333336%;
 }
-.gee-col-6 {
+.gee-unit-6 {
   width: 50%;
 }
-.gee-col-5 {
+.gee-unit-5 {
   width: 41.66666666666667%;
 }
-.gee-col-4 {
+.gee-unit-4 {
   width: 33.33333333333333%;
 }
-.gee-col-3 {
+.gee-unit-3 {
   width: 25%;
 }
-.gee-col-2 {
+.gee-unit-2 {
   width: 16.666666666666664%;
 }
-.gee-col-1 {
+.gee-unit-1 {
   width: 8.333333333333332%;
 }
 /**
  * Grid system with 12 columns and a 2% gutter.
  */
-.gee-gutter-row {
+.gee-gutter-grid {
   letter-spacing: -0.31em;
   *letter-spacing: normal;
   *word-spacing: -0.43em;
@@ -67,11 +67,11 @@
   width: 102%;
   margin-left: -2%;
 }
-.gee-gutter-row .opera-only :-o-prefocus,
-.gee-gutter-row {
+.gee-gutter-grid .opera-only :-o-prefocus,
+.gee-gutter-grid {
   word-spacing: -0.43em;
 }
-[class*="gee-gutter-col"] {
+[class*="gee-gutter-unit"] {
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -81,61 +81,61 @@
   text-rendering: auto;
   margin-left: 2%;
 }
-.gee-gutter-col-12 {
+.gee-gutter-unit-12 {
   width: 98%;
 }
-.gee-gutter-col-11 {
+.gee-gutter-unit-11 {
   width: 89.66666666666666%;
 }
-.gee-gutter-col-10 {
+.gee-gutter-unit-10 {
   width: 81.33333333333334%;
 }
-.gee-gutter-col-9 {
+.gee-gutter-unit-9 {
   width: 73%;
 }
-.gee-gutter-col-8 {
+.gee-gutter-unit-8 {
   width: 64.66666666666666%;
 }
-.gee-gutter-col-7 {
+.gee-gutter-unit-7 {
   width: 56.333333333333336%;
 }
-.gee-gutter-col-6 {
+.gee-gutter-unit-6 {
   width: 48%;
 }
-.gee-gutter-col-5 {
+.gee-gutter-unit-5 {
   width: 39.66666666666667%;
 }
-.gee-gutter-col-4 {
+.gee-gutter-unit-4 {
   width: 31.33333333333333%;
 }
-.gee-gutter-col-3 {
+.gee-gutter-unit-3 {
   width: 23%;
 }
-.gee-gutter-col-2 {
+.gee-gutter-unit-2 {
   width: 14.666666666666664%;
 }
-.gee-gutter-col-1 {
+.gee-gutter-unit-1 {
   width: 6.333333333333332%;
 }
 /**
- * Responsive grid extension (use .gee-responsive-row instead of .gee-row).
- * Columns collapse to full width on screen widths lower than 767px.
+ * Responsive grid extension (use .gee-responsive-grid instead of .gee-grid).
+ * Units collapse to full width on screen widths lower than 767px.
  */
-.gee-responsive-row {
+.gee-responsive-grid {
   letter-spacing: -0.31em;
   *letter-spacing: normal;
   *word-spacing: -0.43em;
   text-rendering: optimizespeed;
 }
-.gee-responsive-row .opera-only :-o-prefocus,
-.gee-responsive-row {
+.gee-responsive-grid .opera-only :-o-prefocus,
+.gee-responsive-grid {
   word-spacing: -0.43em;
 }
-.gee-responsive-row img {
+.gee-responsive-grid img {
   max-width: 100%;
 }
 @media (max-width: 767px) {
-  .gee-responsive-row > [class*="gee-col"] {
+  .gee-responsive-grid > [class*="gee-unit"] {
     width: 100%;
   }
 }

@@ -1,34 +1,43 @@
 Grid Gutters
 ============
 
-gee can be configured to have gutters between the columns. Gutter widths must be
+gee can be configured to have gutters between the units. Gutter widths must be
 defined in percent.
 
 Semantic way
 ------------
 
 You can define a gutter by either changing the global variable `@gee-gutter` or
-by passing the number as third argument to the `.gee-col()` mixin.
+by passing the number as first argument to `.gee-grid()` and third argument to
+the `.gee-unit()` mixin.
 
 ```css
 @gee-gutter: 2%;
 
+.container {
+    .gee-grid();
+}
+
 .main {
-    .gee-col(9);
+    .gee-unit(9);
 }
 
 .sidebar {
-    .gee-col(3);
+    .gee-unit(3);
 }
 
 /** OR **/
 
+.container {
+    .gee-grid(2%);
+}
+
 .main {
-    .gee-col(9, 12, 2%);
+    .gee-unit(9, 12, 2%);
 }
 
 .sidebar {
-    .gee-col(3, 12, 2%);
+    .gee-unit(3, 12, 2%);
 }
 ```
 

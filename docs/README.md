@@ -8,8 +8,8 @@ gee is a percentage-based grid system defaulting to 12 columns. It can be either
 used in a semantic way by using LESS mixins or in a traditional class-based
 (unsemantic) way.
 
-The basic components are "rows" and "columns" where a row contains one or more
-columns. The only requirement is that all columns are children of a row.
+The basic components are "grids" and "units" where a grids contains one or more
+units. The only requirement is that all units are children of a grid.
 
 TOC
 ---

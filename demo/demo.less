@@ -13,11 +13,11 @@
 
 
 /**
- * Responsive grid extension (use .gee-responsive-row instead of .gee-row).
- * Columns collapse to full width on screen widths lower than 767px.
+ * Responsive grid extension (use .gee-responsive-grid instead of .gee-grid).
+ * Units collapse to full width on screen widths lower than 767px.
  */
-.gee-responsive-row {
-    .gee-row();
+.gee-responsive-grid {
+    .gee-grid();
 
     img {
         max-width: 100%;
@@ -25,8 +25,8 @@
 }
 
 @media (max-width: 767px) {
-    .gee-responsive-row {
-        > [class*="gee-col"] {
+    .gee-responsive-grid {
+        > [class*="gee-unit"] {
             width: 100%;
         }
     }
