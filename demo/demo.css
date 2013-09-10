@@ -6,6 +6,10 @@
   *letter-spacing: normal;
   *word-spacing: -0.43em;
   text-rendering: optimizespeed;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
 }
 .gee-grid .opera-only :-o-prefocus,
 .gee-grid {
@@ -64,6 +68,10 @@
   *letter-spacing: normal;
   *word-spacing: -0.43em;
   text-rendering: optimizespeed;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
   width: 102%;
   margin-left: -2%;
 }
@@ -126,6 +134,10 @@
   *letter-spacing: normal;
   *word-spacing: -0.43em;
   text-rendering: optimizespeed;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
 }
 .gee-responsive-grid .opera-only :-o-prefocus,
 .gee-responsive-grid {
