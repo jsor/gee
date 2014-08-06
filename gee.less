@@ -87,7 +87,7 @@
 
 .gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@columns > 0) {
     .gee-unit-base();
-    .gee-unit-width(@columns, @grid-columns);
+    .gee-unit-width(@columns, @grid-columns, @grid-gutter);
     .gee-unit-margin(@grid-gutter);
 }
 
