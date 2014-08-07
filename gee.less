@@ -36,27 +36,13 @@
     }
 }
 
-.gee-grid-width(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    width: 100% + @grid-gutter;
-}
-
-.gee-grid-width(@grid-gutter: 0) when (@grid-gutter = 0) {
-}
-
-.gee-grid-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    margin-left: @grid-gutter * -1;
-}
-
-.gee-grid-margin(@grid-gutter: 0) when (@grid-gutter = 0) {
-}
-
 .gee-grid(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
     .gee-grid-base();
-    .gee-grid-width(@grid-gutter);
-    .gee-grid-margin(@grid-gutter);
+    width: 100% + @grid-gutter;
+    margin-left: percentage(@grid-gutter * -1) / 100;
 }
 
-.gee-grid(@grid-gutter: 0) when (@grid-gutter = 0) {
+.gee-grid(0) {
     .gee-grid-base();
 }
 
@@ -74,15 +60,15 @@
     width: percentage(@columns / @grid-columns) - @grid-gutter;
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: 0) when (@grid-gutter = 0) {
+.gee-unit-width(@columns, @grid-columns: @gee-columns, 0) {
     width: percentage(@columns / @grid-columns);
 }
 
 .gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    margin-left: @grid-gutter;
+    margin-left: percentage(@grid-gutter) / 100;
 }
 
-.gee-unit-margin(@grid-gutter: 0) when (@grid-gutter = 0) {
+.gee-unit-margin(0) {
 }
 
 .gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@columns > 0) {
@@ -91,7 +77,7 @@
     .gee-unit-margin(@grid-gutter);
 }
 
-.gee-unit(@columns: 0, @grid-columns: 0, @grid-gutter: @gee-gutter) when (@columns = 0) {
+.gee-unit(0, @grid-columns: 0, @grid-gutter: @gee-gutter) {
     .gee-unit-base();
     .gee-unit-margin(@grid-gutter);
 }
