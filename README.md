@@ -35,5 +35,4 @@ The grid system is based on [YUI's CSS Grids](http://yuilibrary.com/yui/docs/css
 License
 -------
 
-Copyright (c) 2013 Jan Sorgalla.
 Released under the [MIT](https://github.com/jsor/gee/blob/master/LICENSE) license.
