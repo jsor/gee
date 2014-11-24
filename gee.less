@@ -1,5 +1,5 @@
 // gee - A minimalistic (un)semantic grid system framework
-// Copyright (c) Jan Sorgalla
+// Copyright (c) 2013 Jan Sorgalla
 //
 // License: MIT
 // Version: 0.1.0
@@ -9,7 +9,7 @@
 @gee-columns: 12;
 @gee-gutter: 0;
 
-.gee-grid-base() {
+.gee-grid(@grid-gutter: @gee-gutter) {
     letter-spacing: -0.31em; // Webkit: collapse white-space between units
     *letter-spacing: normal; // reset IE < 8
     *word-spacing: -0.43em; // IE < 8: collapse white-space between units
@@ -37,13 +37,8 @@
 }
 
 .gee-grid(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    .gee-grid-base();
     width: 100% + @grid-gutter;
     margin-left: percentage(@grid-gutter * -1) / 100;
-}
-
-.gee-grid(0) {
-    .gee-grid-base();
 }
 
 .gee-unit-base() {
@@ -56,29 +51,21 @@
     text-rendering: auto;
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    width: percentage(@columns / @grid-columns) - @grid-gutter;
+.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter <= 0) {
+    width: percentage(@columns / @grid-columns);
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, 0) {
-    width: percentage(@columns / @grid-columns);
+.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+    width: percentage(@columns / @grid-columns) - @grid-gutter;
 }
 
 .gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
     margin-left: percentage(@grid-gutter) / 100;
 }
 
-.gee-unit-margin(0) {
-}
-
-.gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@columns > 0) {
+.gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) {
     .gee-unit-base();
     .gee-unit-width(@columns, @grid-columns, @grid-gutter);
-    .gee-unit-margin(@grid-gutter);
-}
-
-.gee-unit(0, @grid-columns: 0, @grid-gutter: @gee-gutter) {
-    .gee-unit-base();
     .gee-unit-margin(@grid-gutter);
 }
 
