@@ -10,6 +10,9 @@
   -webkit-flex-flow: row wrap;
   display: -ms-flexbox;
   -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
 }
 .gee-grid .opera-only :-o-prefocus,
 .gee-grid {
@@ -72,6 +75,9 @@
   -webkit-flex-flow: row wrap;
   display: -ms-flexbox;
   -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
   width: 102%;
   margin-left: -2%;
 }
@@ -138,6 +144,13 @@
   -webkit-flex-flow: row wrap;
   display: -ms-flexbox;
   -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+.gee-responsive-grid .opera-only :-o-prefocus,
+.gee-responsive-grid {
+  word-spacing: -0.43em;
 }
 .gee-responsive-grid .opera-only :-o-prefocus,
 .gee-responsive-grid {
