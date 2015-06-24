@@ -8,12 +8,32 @@
 
 @gee-columns: 12;
 @gee-gutter: 0;
+@gee-unit-font-family: none;
 
-.gee-grid(@grid-gutter: @gee-gutter) {
+.gee-grid-font-family(@unit-font-family: sans-serif) when not (@unit-font-family = none) {
+    // Sets the font stack to fonts known to work properly with the letter and
+    // word spacings.
+    // The following font stack makes grids work on all known environments.
+    // * FreeSans: Ships with many Linux distros, including Ubuntu
+    // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica
+    //   and Arial to get picked up by the browser, even though neither is
+    //   available in Chrome OS.
+    // * Droid Sans: Ships with all versions of Android.
+    // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+}
+
+.gee-unit-font-family(@unit-font-family: sans-serif) when not (@unit-font-family = none) {
+    font-family: @unit-font-family;
+}
+
+.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
     letter-spacing: -0.31em; // Webkit: collapse white-space between units
     *letter-spacing: normal; // reset IE < 8
     *word-spacing: -0.43em; // IE < 8: collapse white-space between units
     text-rendering: optimizespeed; // Webkit: fixes text-rendering: optimizeLegibility
+
+    .gee-grid-font-family(@unit-font-family);
 
     // Use flexbox when possible to avoid `letter-spacing` side-effects.
     //
@@ -41,12 +61,12 @@
     }
 }
 
-.gee-grid(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) {
     width: 100% + @grid-gutter;
     margin-left: percentage(@grid-gutter * -1) / 100;
 }
 
-.gee-unit-base() {
+.gee-unit-base(@unit-font-family) {
     display: inline-block;
     *display: inline; // IE < 8: fake inline-block
     zoom: 1;
@@ -54,6 +74,8 @@
     word-spacing: normal;
     vertical-align: top;
     text-rendering: auto;
+
+    .gee-unit-font-family(@unit-font-family);
 }
 
 .gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter <= 0) {
@@ -68,19 +90,19 @@
     margin-left: percentage(@grid-gutter) / 100;
 }
 
-.gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) {
-    .gee-unit-base();
+.gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
+    .gee-unit-base(@unit-font-family);
     .gee-unit-width(@columns, @grid-columns, @grid-gutter);
     .gee-unit-margin(@grid-gutter);
 }
 
-.gee-generate-base(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit) {
+.gee-generate-base(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit, @unit-font-family: @gee-unit-font-family) {
     .@{class-prefix}@{grid-class} {
-        .gee-grid(@gutter);
+        .gee-grid(@gutter, @unit-font-family);
     }
 
     [class*="@{class-prefix}@{unit-class}"] {
-        .gee-unit-base();
+        .gee-unit-base(@unit-font-family);
         .gee-unit-margin(@gutter);
     }
 }
@@ -99,7 +121,7 @@
     .unit-x(@columns);
 }
 
-.gee-generate(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit) {
-    .gee-generate-base(@columns, @gutter, @class-prefix, @grid-class, @unit-class);
+.gee-generate(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit, @unit-font-family: @gee-unit-font-family) {
+    .gee-generate-base(@columns, @gutter, @class-prefix, @grid-class, @unit-class, @unit-font-family);
     .gee-generate-widths(@columns, @gutter, @class-prefix, @grid-class, @unit-class);
 }
