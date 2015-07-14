@@ -29,8 +29,6 @@
 
 .gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
     letter-spacing: -0.31em; // Webkit: collapse white-space between units
-    *letter-spacing: normal; // reset IE < 8
-    *word-spacing: -0.43em; // IE < 8: collapse white-space between units
     text-rendering: optimizespeed; // Webkit: fixes text-rendering: optimizeLegibility
 
     .gee-grid-font-family(@unit-font-family);
@@ -68,7 +66,6 @@
 
 .gee-unit-base(@unit-font-family) {
     display: inline-block;
-    *display: inline; // IE < 8: fake inline-block
     zoom: 1;
     letter-spacing: normal;
     word-spacing: normal;
