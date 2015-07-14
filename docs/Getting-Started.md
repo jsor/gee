@@ -6,6 +6,8 @@ it into your LESS stylesheet:
 
 ```css
 @import 'gee.less';
+// Configure the font-family for the grid units
+@gee-unit-font-family: Helvetica, Arial, sans-serif;
 ```
 
 Semantic way

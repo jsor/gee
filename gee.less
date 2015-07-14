@@ -8,9 +8,9 @@
 
 @gee-columns: 12;
 @gee-gutter: 0;
-@gee-unit-font-family: none;
+@gee-unit-font-family: sans-serif;
 
-.gee-grid-font-family(@unit-font-family: sans-serif) when not (@unit-font-family = none) {
+.gee-grid-font-family(@unit-font-family) when not (@unit-font-family = none) {
     // Sets the font stack to fonts known to work properly with the letter and
     // word spacings.
     // The following font stack makes grids work on all known environments.
@@ -23,7 +23,7 @@
     font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
 }
 
-.gee-unit-font-family(@unit-font-family: sans-serif) when not (@unit-font-family = none) {
+.gee-unit-font-family(@unit-font-family) when not (@unit-font-family = none) {
     font-family: @unit-font-family;
 }
 
