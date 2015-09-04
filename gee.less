@@ -59,9 +59,14 @@
     }
 }
 
-.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) {
+.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) and not (ispixel(@grid-gutter)) {
     width: 100% + @grid-gutter;
     margin-left: percentage(@grid-gutter * -1) / 100;
+}
+
+.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) and (ispixel(@grid-gutter)) {
+    width: calc(100% ~"+" @grid-gutter);
+    margin-left: -@grid-gutter;
 }
 
 .gee-unit-base(@unit-font-family) {
@@ -79,12 +84,20 @@
     width: percentage(@columns / @grid-columns);
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) and not (ispixel(@grid-gutter)) {
     width: percentage(@columns / @grid-columns) - @grid-gutter;
 }
 
-.gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) and (ispixel(@grid-gutter)) {
+    width: calc(percentage(@columns / @grid-columns) ~"-" @grid-gutter);
+}
+
+.gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) and not (ispixel(@grid-gutter)) {
     margin-left: percentage(@grid-gutter) / 100;
+}
+
+.gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) and (ispixel(@grid-gutter)) {
+    margin-left: @grid-gutter;
 }
 
 .gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
