@@ -19,7 +19,7 @@ Download
 All you need is the [`gee.less`](https://raw.github.com/jsor/gee/master/gee.less)
 file.
 
-Alternatively, you can download the [whole archive](https://github.com/jsor/gee/archive/master.zip)
+Alternatively, you can download the [whole archive](https://github.com/jsor/gee/releases/latest)
 including docs and examples.
 
 Examples
