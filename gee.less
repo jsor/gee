@@ -27,7 +27,7 @@
     font-family: @unit-font-family;
 }
 
-.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
+.gee-grid(@grid-gutter: @gee-gutter; @unit-font-family: @gee-unit-font-family) {
     letter-spacing: -0.31em; // Webkit: collapse white-space between units
     text-rendering: optimizespeed; // Webkit: fixes text-rendering: optimizeLegibility
 
@@ -59,7 +59,7 @@
     }
 }
 
-.gee-grid(@grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) {
+.gee-grid(@grid-gutter: @gee-gutter; @unit-font-family: @gee-unit-font-family) when (@grid-gutter > 0) {
     width: 100% + @grid-gutter;
     margin-left: percentage(@grid-gutter * -1) / 100;
 }
@@ -75,11 +75,11 @@
     .gee-unit-font-family(@unit-font-family);
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter <= 0) {
+.gee-unit-width(@columns; @grid-columns: @gee-columns; @grid-gutter: @gee-gutter) when (@grid-gutter <= 0) {
     width: percentage(@columns / @grid-columns);
 }
 
-.gee-unit-width(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
+.gee-unit-width(@columns; @grid-columns: @gee-columns; @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
     width: percentage(@columns / @grid-columns) - @grid-gutter;
 }
 
@@ -87,15 +87,15 @@
     margin-left: percentage(@grid-gutter) / 100;
 }
 
-.gee-unit(@columns, @grid-columns: @gee-columns, @grid-gutter: @gee-gutter, @unit-font-family: @gee-unit-font-family) {
+.gee-unit(@columns; @grid-columns: @gee-columns; @grid-gutter: @gee-gutter; @unit-font-family: @gee-unit-font-family) {
     .gee-unit-base(@unit-font-family);
-    .gee-unit-width(@columns, @grid-columns, @grid-gutter);
+    .gee-unit-width(@columns; @grid-columns; @grid-gutter);
     .gee-unit-margin(@grid-gutter);
 }
 
-.gee-generate-base(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit, @unit-font-family: @gee-unit-font-family) {
+.gee-generate-base(@columns: @gee-columns; @gutter: @gee-gutter; @class-prefix: gee-; @grid-class: grid; @unit-class: unit; @unit-font-family: @gee-unit-font-family) {
     .@{class-prefix}@{grid-class} {
-        .gee-grid(@gutter, @unit-font-family);
+        .gee-grid(@gutter; @unit-font-family);
     }
 
     [class*="@{class-prefix}@{unit-class}"] {
@@ -104,10 +104,10 @@
     }
 }
 
-.gee-generate-widths(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit) {
+.gee-generate-widths(@columns: @gee-columns; @gutter: @gee-gutter; @class-prefix: gee-; @grid-class: grid; @unit-class: unit) {
     .unit-x(@index) when (@index > 0) {
         .@{class-prefix}@{unit-class}-@{index} {
-            .gee-unit-width(@index, @columns, @gutter);
+            .gee-unit-width(@index; @columns; @gutter);
         }
         .unit-x(@index - 1);
     }
@@ -118,7 +118,7 @@
     .unit-x(@columns);
 }
 
-.gee-generate(@columns: @gee-columns, @gutter: @gee-gutter, @class-prefix: gee-, @grid-class: grid, @unit-class: unit, @unit-font-family: @gee-unit-font-family) {
-    .gee-generate-base(@columns, @gutter, @class-prefix, @grid-class, @unit-class, @unit-font-family);
-    .gee-generate-widths(@columns, @gutter, @class-prefix, @grid-class, @unit-class);
+.gee-generate(@columns: @gee-columns; @gutter: @gee-gutter; @class-prefix: gee-; @grid-class: grid; @unit-class: unit; @unit-font-family: @gee-unit-font-family) {
+    .gee-generate-base(@columns; @gutter; @class-prefix; @grid-class; @unit-class; @unit-font-family);
+    .gee-generate-widths(@columns; @gutter; @class-prefix; @grid-class; @unit-class);
 }
