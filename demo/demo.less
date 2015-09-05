@@ -1,17 +1,18 @@
 @import "../gee";
 
+// Set default unit font family.
 @gee-unit-font-family: 'Lato', sans-serif;
 
 /**
  * Grid system with 12 columns and without gutter.
  */
-.gee-generate(12, 0, gee-);
+.gee-generate();
 
 
 /**
  * Grid system with 12 columns and a 2% gutter.
  */
-.gee-generate(12, 2%, gee-gutter-);
+.gee-generate(@gutter: 2%; @class-prefix: gee-gutter-);
 
 
 /**
