@@ -16,7 +16,7 @@ You can read the documentation [here](docs/):
 Download
 --------
 
-All you need is the [`gee.less`](https://raw.github.com/jsor/gee/master/gee.less)
+All you need is the [`gee.less`](gee.less?raw=1)
 file.
 
 Alternatively, you can download the [whole archive](https://github.com/jsor/gee/releases/latest)
