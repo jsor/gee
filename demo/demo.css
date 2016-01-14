@@ -30,37 +30,37 @@
   width: 100%;
 }
 .gee-unit-11 {
-  width: 91.66666667%;
+  width: 91.66%;
 }
 .gee-unit-10 {
-  width: 83.33333333%;
+  width: 83.33%;
 }
 .gee-unit-9 {
   width: 75%;
 }
 .gee-unit-8 {
-  width: 66.66666667%;
+  width: 66.66%;
 }
 .gee-unit-7 {
-  width: 58.33333333%;
+  width: 58.33%;
 }
 .gee-unit-6 {
   width: 50%;
 }
 .gee-unit-5 {
-  width: 41.66666667%;
+  width: 41.66%;
 }
 .gee-unit-4 {
-  width: 33.33333333%;
+  width: 33.33%;
 }
 .gee-unit-3 {
   width: 25%;
 }
 .gee-unit-2 {
-  width: 16.66666667%;
+  width: 16.66%;
 }
 .gee-unit-1 {
-  width: 8.33333333%;
+  width: 8.33%;
 }
 /**
  * Grid system with 12 columns and a 2% gutter.
@@ -97,37 +97,37 @@
   width: 98%;
 }
 .gee-gutter-unit-11 {
-  width: 89.66666667%;
+  width: 89.66%;
 }
 .gee-gutter-unit-10 {
-  width: 81.33333333%;
+  width: 81.33%;
 }
 .gee-gutter-unit-9 {
   width: 73%;
 }
 .gee-gutter-unit-8 {
-  width: 64.66666667%;
+  width: 64.66%;
 }
 .gee-gutter-unit-7 {
-  width: 56.33333333%;
+  width: 56.33%;
 }
 .gee-gutter-unit-6 {
   width: 48%;
 }
 .gee-gutter-unit-5 {
-  width: 39.66666667%;
+  width: 39.66%;
 }
 .gee-gutter-unit-4 {
-  width: 31.33333333%;
+  width: 31.33%;
 }
 .gee-gutter-unit-3 {
   width: 23%;
 }
 .gee-gutter-unit-2 {
-  width: 14.66666667%;
+  width: 14.66%;
 }
 .gee-gutter-unit-1 {
-  width: 6.33333333%;
+  width: 6.33%;
 }
 /**
  * Responsive grid extension (use .gee-responsive-grid instead of .gee-grid).

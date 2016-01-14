@@ -76,11 +76,11 @@
 }
 
 .gee-unit-width(@columns; @grid-columns: @gee-columns; @grid-gutter: @gee-gutter) when (@grid-gutter <= 0) {
-    width: percentage(@columns / @grid-columns);
+    width: floor(percentage(@columns / @grid-columns) * 100) / 100;
 }
 
 .gee-unit-width(@columns; @grid-columns: @gee-columns; @grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
-    width: percentage(@columns / @grid-columns) - @grid-gutter;
+    width: floor((percentage(@columns / @grid-columns) - @grid-gutter) * 100) / 100;
 }
 
 .gee-unit-margin(@grid-gutter: @gee-gutter) when (@grid-gutter > 0) {
