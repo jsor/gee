@@ -1,5 +1,6 @@
 assets/
 demo/
 docs/
+node_modules/
 .*
 index.html

@@ -20,5 +20,13 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jsor/gee/issues"
+  },
+  "scripts": {
+    "build-demo": "lessc demo/demo.less demo/demo.css && postcss demo/demo.css --use=postcss-cssnext --output=demo/demo.css"
+  },
+  "devDependencies": {
+    "less": "^2.7.2",
+    "postcss-cli": "^3.0.0",
+    "postcss-cssnext": "^2.10.0"
   }
 }
